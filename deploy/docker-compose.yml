@@ -1,0 +1,22 @@
+services:
+  gdprsan-backend:
+    build:
+      context: ..
+    container_name: gdprsan-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    volumes:
+      - ../:/app
+
+  gdprsan-frontend:
+    build:
+      context: ../frontend
+    container_name: gdprsan-frontend
+    ports:
+      - "8501:8501"
+    volumes:
+      - ../frontend:/app
+    depends_on:
+      - gdprsan-backend

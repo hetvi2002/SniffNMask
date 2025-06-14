@@ -1,0 +1,10 @@
+
+rules:
+  - action: "mask"
+    instructions:
+      - Identify email addresses and mask all characters before the '@' symbol with any dummy value.
+      - Identify phone numbers including international formats (with or without country code, parentheses, dashes, spaces, or dots). Mask all digits by replacing them with 1 while preserving formatting characters like +, spaces, parentheses, dashes, or dots. Example "+44 1234 128767" → "+11 1111 111111"
+      - Identify person names ONLY if they are proper nouns, capitalized, and not common words or greetings (e.g., exclude "Hi", "OK"). Mask all characters with dummy values instead of replacing them with pseudonyms. Example  "John" → "User"
+      - Identify URLs or web links and mask the entire URL with a dummy value like "https://masked.url".
+      - Identify IP addresses (both IPv4 and IPv6) and mask them entirely with a dummy value like "0.0.0.0" or "::".
+      - Identify credit card numbers and mask them completely using a dummy sequence like "**** **** **** ****".
